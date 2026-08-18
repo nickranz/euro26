@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>our europe summer ✈︎</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --aperol: #F25C1B;
+  --prosecco: #F7C948;
+  --orange-light: #FFA552;
+  --blush: #FFDED0;
+  --sand: #FDF6EE;
+  --cream: #FFFBF5;
+  --brown: #2C1A0E;
+  --brown-mid: #7A5234;
+  --white: #FFFFFF;
+  --disco-1: #FF6B9D;
+  --disco-2: #C44DFF;
+  --disco-3: #00D4FF;
+  --disco-4: #FFD700;
+  --disco-5: #00FF88;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--sand); color: var(--brown); font-size: 14px; line-height: 1.6; }
+
+/* ══════════════════════════════
+   DISCO BALL ANIMATION
+══════════════════════════════ */
+@keyframes spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+@keyframes shimmer-1 { 0%,100%{opacity:0} 50%{opacity:1} }
+@keyframes shimmer-2 { 0%,100%{opacity:0} 40%{opacity:0.8} }
+@keyframes shimmer-3 { 0%,100%{opacity:0} 60%{opacity:0.9} }
+@keyframes float { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-12px)} }
+@keyframes disco-ray { 0%{transform:rotate(0deg) scaleX(1);opacity:0.7} 50%{opacity:0.2;scaleX(1.5)} 100%{transform:rotate(360deg) scaleX(1);opacity:0.7} }
+@keyframes sparkle { 0%,100%{transform:scale(0) rotate(0deg);opacity:0} 50%{transform:scale(1) rotate(180deg);opacity:1} }
+@keyframes bounce-in { 0%{transform:scale(0.3) translateY(-40px);opacity:0} 60%{transform:scale(1.05);opacity:1} 100%{transform:scale(1) translateY(0)} }
+@keyframes pulse-glow { 0%,100%{box-shadow:0 0 20px rgba(242,92,27,0.4)} 50%{box-shadow:0 0 60px rgba(242,92,27,0.8), 0 0 100px rgba(247,201,72,0.4)} }
+@keyframes aperol-bubble { 0%{transform:translateY(0) scale(1);opacity:0.8} 100%{transform:translateY(-200px) scale(0.3);opacity:0} }
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #FF8C42 0%, #F25C1B 30%, #E8401A 60%, #C44DFF 100%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 32px 60px; position: relative; overflow: hidden;
+}
+
+/* Aperol glass background vibe */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle 600px at 70% -10%, rgba(247,201,72,0.3) 0%, transparent 60%),
+    radial-gradient(circle 400px at 10% 80%, rgba(255,107,157,0.2) 0%, transparent 50%),
+    radial-gradient(circle 300px at 90% 80%, rgba(196,77,255,0.15) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* Disco light rays */
+.disco-rays {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; height: 100%; pointer-events: none; overflow: hidden;
+}
+.ray {
+  position: absolute; top: 80px; left: 50%;
+  width: 3px; height: 120%;
+  transform-origin: top center;
+  border-radius: 2px;
+  animation: disco-ray 8s linear infinite;
+}
+.ray:nth-child(1)  { background: linear-gradient(to bottom, rgba(255,107,157,0.9), transparent); transform: rotate(0deg);   animation-delay: 0s; }
+.ray:nth-child(2)  { background: linear-gradient(to bottom, rgba(0,212,255,0.9), transparent);   transform: rotate(30deg);  animation-delay: 0.4s; }
+.ray:nth-child(3)  { background: linear-gradient(to bottom, rgba(255,215,0,0.9), transparent);   transform: rotate(60deg);  animation-delay: 0.8s; }
+.ray:nth-child(4)  { background: linear-gradient(to bottom, rgba(196,77,255,0.9), transparent);  transform: rotate(90deg);  animation-delay: 1.2s; }
+.ray:nth-child(5)  { background: linear-gradient(to bottom, rgba(0,255,136,0.9), transparent);   transform: rotate(120deg); animation-delay: 1.6s; }
+.ray:nth-child(6)  { background: linear-gradient(to bottom, rgba(255,107,157,0.9), transparent); transform: rotate(150deg); animation-delay: 2.0s; }
+.ray:nth-child(7)  { background: linear-gradient(to bottom, rgba(0,212,255,0.7), transparent);   transform: rotate(180deg); animation-delay: 2.4s; }
+.ray:nth-child(8)  { background: linear-gradient(to bottom, rgba(255,215,0,0.7), transparent);   transform: rotate(210deg); animation-delay: 2.8s; }
+.ray:nth-child(9)  { background: linear-gradient(to bottom, rgba(255,107,157,0.7), transparent); transform: rotate(240deg); animation-delay: 3.2s; }
+.ray:nth-child(10) { background: linear-gradient(to bottom, rgba(196,77,255,0.7), transparent);  transform: rotate(270deg); animation-delay: 3.6s; }
+.ray:nth-child(11) { background: linear-gradient(to bottom, rgba(0,255,136,0.7), transparent);   transform: rotate(300deg); animation-delay: 4.0s; }
+.ray:nth-child(12) { background: linear-gradient(to bottom, rgba(0,212,255,0.7), transparent);   transform: rotate(330deg); animation-delay: 4.4s; }
+
+/* Disco Ball */
+.disco-ball-wrap {
+  position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+  animation: float 4s ease-in-out infinite;
+  z-index: 10;
+}
+.disco-string {
+  width: 2px; height: 30px; background: rgba(255,255,255,0.4);
+  margin: 0 auto;
+}
+.disco-ball {
+  width: 90px; height: 90px; border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #d0d0d0 30%, #888 60%, #444 100%);
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.5),
+    inset -10px -10px 30px rgba(0,0,0,0.4),
+    inset 5px 5px 15px rgba(255,255,255,0.6);
+  overflow: hidden;
+}
+.disco-ball::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: 50%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 7px,
+    rgba(0,0,0,0.15) 7px,
+    rgba(0,0,0,0.15) 8px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 7px,
+    rgba(0,0,0,0.15) 7px,
+    rgba(0,0,0,0.15) 8px
+  );
+}
+.disco-ball::after {
+  content: '';
+  position: absolute; top: 10%; left: 15%;
+  width: 35%; height: 30%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+/* Sparkles */
+.sparkle {
+  position: absolute; pointer-events: none;
+  font-size: 18px; color: white;
+  animation: sparkle 2s ease-in-out infinite;
+}
+.sparkle:nth-child(1)  { top:20%; left:15%; animation-delay:0s; font-size:22px; }
+.sparkle:nth-child(2)  { top:35%; right:12%; animation-delay:0.4s; font-size:16px; }
+.sparkle:nth-child(3)  { top:55%; left:8%; animation-delay:0.8s; font-size:14px; }
+.sparkle:nth-child(4)  { top:25%; right:25%; animation-delay:1.2s; font-size:20px; }
+.sparkle:nth-child(5)  { top:65%; right:18%; animation-delay:1.6s; font-size:12px; }
+.sparkle:nth-child(6)  { top:45%; left:22%; animation-delay:2.0s; font-size:18px; }
+.sparkle:nth-child(7)  { top:15%; right:40%; animation-delay:2.4s; font-size:14px; }
+.sparkle:nth-child(8)  { top:75%; left:30%; animation-delay:0.6s; font-size:16px; }
+
+/* Bubbles (Prosecco vibes) */
+.bubble {
+  position: absolute; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  bottom: 0; pointer-events: none;
+  animation: aperol-bubble 4s ease-out infinite;
+}
+.bubble:nth-child(1) { width:12px;height:12px; left:20%; animation-delay:0s;   animation-duration:4.5s; }
+.bubble:nth-child(2) { width:8px; height:8px;  left:40%; animation-delay:1s;   animation-duration:3.8s; }
+.bubble:nth-child(3) { width:15px;height:15px; left:60%; animation-delay:2s;   animation-duration:5s; }
+.bubble:nth-child(4) { width:6px; height:6px;  left:75%; animation-delay:0.5s; animation-duration:3.5s; }
+.bubble:nth-child(5) { width:10px;height:10px; left:85%; animation-delay:1.5s; animation-duration:4.2s; }
+.bubble:nth-child(6) { width:18px;height:18px; left:10%; animation-delay:3s;   animation-duration:5.5s; }
+
+/* Aperol glass emoji positioned */
+.aperol-glass {
+  position: absolute; bottom: 80px; right: 36px;
+  font-size: 80px; opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.palmtree {
+  position: absolute; bottom: 60px; left: 20px;
+  font-size: 60px; opacity: 0.12;
+  animation: float 7s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+/* Hero nav */
+.hero-nav {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: 24px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 20;
+}
+.hero-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.hero-stats { display: flex; gap: 24px; }
+.hero-stat-n { font-family: 'Playfair Display', serif; font-size: 22px; color: white; line-height: 1; text-align: center; }
+.hero-stat-l { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; }
+
+/* Hero body */
+.hero-body { position: relative; z-index: 20; }
+.hero-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--prosecco); margin-bottom: 12px;
+  text-shadow: 0 0 20px rgba(247,201,72,0.5);
+}
+.hero-title {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(56px, 11vw, 110px); line-height: 0.88; color: white;
+  letter-spacing: -0.02em; margin-bottom: 36px;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+.hero-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.hero-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 100px; padding: 8px 18px;
+  font-size: 12px; font-weight: 600; color: white; text-decoration: none;
+  backdrop-filter: blur(10px); transition: all 0.2s;
+}
+.hero-chip:hover { background: rgba(255,255,255,0.28); transform: translateY(-2px); }
+
+/* ══════════════════════════════
+   BODY BACKGROUND
+══════════════════════════════ */
+.main-bg {
+  background: var(--sand);
+  background-image:
+    radial-gradient(circle at 100% 20%, rgba(242,92,27,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 0% 60%, rgba(247,201,72,0.05) 0%, transparent 40%);
+}
+
+/* ══════════════════════════════
+   CITY SECTION
+══════════════════════════════ */
+.city-sec { padding-bottom: 20px; }
+.city-hdr-wrap { padding: 68px 28px 0; max-width: 940px; margin: 0 auto; }
+.city-dates-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--aperol); margin-bottom: 10px; }
+.city-hdr {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding-bottom: 16px; border-bottom: 2.5px solid var(--brown);
+  margin-bottom: 36px; gap: 16px;
+}
+.city-hdr-left { display: flex; align-items: flex-end; gap: 14px; }
+.city-flag { font-size: 36px; line-height: 1; }
+.city-title { font-family: 'Playfair Display', serif; font-size: clamp(40px,6vw,70px); font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+.city-nights { font-size: 11px; font-weight: 600; color: var(--brown-mid); letter-spacing: 0.05em; max-width: 200px; text-align: right; }
+
+/* ══════════════════════════════
+   WRAP
+══════════════════════════════ */
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 28px; }
+
+/* ══════════════════════════════
+   DAY BLOCK
+══════════════════════════════ */
+.day-block { margin-bottom: 44px; }
+.day-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.day-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 13px; color: var(--brown-mid); }
+.day-sep { color: var(--aperol); font-size: 14px; }
+.day-theme { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brown-mid); }
+.day-date { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; }
+
+/* ══════════════════════════════
+   STOP CARD
+══════════════════════════════ */
+.stop-card {
+  background: var(--cream);
+  border-radius: 20px; overflow: hidden; margin-bottom: 10px;
+  border: 1.5px solid rgba(44,26,14,0.08);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.stop-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(242,92,27,0.12); }
+
+.stop-inner { display: grid; grid-template-columns: 1fr 150px; }
+.stop-inner.no-img { grid-template-columns: 1fr; }
+.stop-left { padding: 20px 22px; }
+
+/* Time + price row */
+.stop-top-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.stop-time { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aperol); }
+.price-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: linear-gradient(135deg, #FFF3E0, #FFE0CC);
+  border: 1.5px solid #F5A76C;
+  border-radius: 100px; padding: 3px 11px;
+  font-size: 11px; font-weight: 700; color: #9A3D0C;
+}
+.price-free { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); border-color: #81C784; color: #2E6B35; }
+.price-mid  { background: linear-gradient(135deg, #FFF9C4, #FFF176); border-color: #F9A825; color: #5D4000; }
+.price-high { background: linear-gradient(135deg, #FCE4EC, #F8BBD9); border-color: #E57399; color: #880E4F; }
+
+.stop-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; line-height: 1.25; margin-bottom: 6px; }
+.stop-desc { font-size: 12.5px; color: var(--brown-mid); line-height: 1.65; margin-bottom: 8px; }
+
+/* BF note */
+.bf-note {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: linear-gradient(135deg, #F0F7F0, #E8F5E9);
+  border-left: 3px solid #66BB6A; color: #1B5E20;
+  padding: 8px 12px; border-radius: 0 10px 10px 0;
+  margin-top: 10px; font-size: 12px; font-style: italic; line-height: 1.55;
+}
+.bf-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* Chips */
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; border: 1.5px solid; }
+.chip-book { background: #FFF8E0; color: #7A5500; border-color: #F0CC40; }
+.chip-star { background: #FFF0F5; color: #A0305A; border-color: #F0A0C0; }
+.chip-tip  { background: #F0F7F0; color: #2E6030; border-color: #90C890; }
+.chip-rest { background: #EEF3FF; color: #2A4AAA; border-color: #90AAEE; }
+
+/* Stop image — emoji card, no broken images */
+.stop-icon-card {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 52px; flex-shrink: 0; width: 150px;
+  background: linear-gradient(135deg, #FFE8D6, #FFD0B0);
+}
+
+/* Special: terracotta */
+.stop-card.special { background: linear-gradient(135deg, var(--aperol), #D4420F); border-color: transparent; }
+.stop-card.special .stop-time { color: rgba(255,255,255,0.65); }
+.stop-card.special .stop-name { color: white; }
+.stop-card.special .stop-desc { color: rgba(255,255,255,0.8); }
+.stop-card.special .chip { background: rgba(255,255,255,0.18); color: white; border-color: rgba(255,255,255,0.35); }
+.stop-card.special .bf-note { background: rgba(0,0,0,0.18); border-left-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.88); }
+.stop-card.special .price-badge { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4); color: white; }
+.stop-card.special .stop-icon-card { background: rgba(0,0,0,0.15); }
+
+/* Wedding */
+.stop-card.wedding { background: linear-gradient(135deg, #FFE4EE, #FFCCE0); border-color: #F0A0C0; }
+.stop-card.wedding .stop-name { color: #6A1030; }
+
+/* Travel */
+.stop-card.travel { background: linear-gradient(135deg, #1A1205, #2E1F14); border-color: transparent; }
+.stop-card.travel .stop-time { color: rgba(247,201,72,0.7); }
+.stop-card.travel .stop-name { color: white; }
+.stop-card.travel .stop-desc { color: rgba(255,255,255,0.65); }
+.stop-card.travel .price-badge { background: rgba(247,201,72,0.15); border-color: rgba(247,201,72,0.4); color: var(--prosecco); }
+
+/* ══════════════════════════════
+   WALK CONNECTOR
+══════════════════════════════ */
+.walk-conn {
+  display: flex; align-items: center;
+  padding: 4px 22px 4px 36px; gap: 10px; margin: 2px 0;
+}
+.wdots { display: flex; flex-direction: column; gap: 3px; }
+.wdot { width: 4px; height: 4px; border-radius: 50%; background: var(--aperol); opacity: 0.3; }
+.walk-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: white; border: 1.5px solid rgba(242,92,27,0.2);
+  border-radius: 100px; padding: 5px 14px;
+  font-size: 11px; font-weight: 700; color: var(--aperol);
+}
+
+/* ══════════════════════════════
+   CITY PRICE SUMMARY STRIP
+══════════════════════════════ */
+.price-strip {
+  background: linear-gradient(135deg, var(--aperol), #D4420F);
+  border-radius: 16px; padding: 18px 24px; margin-bottom: 32px;
+  display: flex; gap: 20px; flex-wrap: wrap; align-items: center;
+}
+.price-strip-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 2px; }
+.price-strip-val { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; }
+.price-strip-divider { width: 1px; background: rgba(255,255,255,0.2); align-self: stretch; }
+.price-strip-note { font-size: 12px; color: rgba(255,255,255,0.7); font-style: italic; margin-left: auto; max-width: 240px; }
+
+/* ══════════════════════════════
+   BOOKING SECTION
+══════════════════════════════ */
+.book-sec { max-width: 940px; margin: 60px auto 0; padding: 0 28px 90px; }
+.sec-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 42px; margin-bottom: 6px; }
+.sec-sub { font-size: 13px; color: var(--brown-mid); margin-bottom: 28px; }
+
+.book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.book-card {
+  background: var(--cream); border-radius: 16px; padding: 18px 20px;
+  border: 1.5px solid rgba(44,26,14,0.08);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.book-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(242,92,27,0.12); }
+.bc-city { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aperol); margin-bottom: 4px; }
+.bc-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.bc-price-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bc-amount { font-size: 13px; font-weight: 700; color: var(--brown); }
+.bc-where { font-size: 11px; color: var(--brown-mid); }
+.bc-urgency { font-size: 10px; font-weight: 700; color: #CC0000; letter-spacing: 0.05em; margin-top: 4px; }
+
+/* Grand total box */
+.grand-total {
+  background: linear-gradient(135deg, var(--aperol) 0%, #C44DFF 100%);
+  border-radius: 20px; padding: 28px 32px; margin-top: 20px;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.gt-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+.gt-amount { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: white; line-height: 1; margin-bottom: 6px; }
+.gt-note { font-size: 13px; color: rgba(255,255,255,0.75); }
+.gt-breakdown { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); }
+.gt-item { }
+.gt-item-l { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.gt-item-v { font-size: 16px; font-weight: 700; color: white; }
+
+.book-tip { margin-top: 20px; padding: 16px 20px; background: var(--cream); border-radius: 14px; font-size: 12.5px; color: var(--brown-mid); border: 1.5px solid rgba(44,26,14,0.08); line-height: 1.7; }
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+  background: var(--brown);
+  color: rgba(255,255,255,0.3); text-align: center;
+  padding: 40px 24px; font-size: 12px; letter-spacing: 0.06em;
+}
+footer span { color: var(--prosecco); }
+.footer-disco { font-size: 24px; margin-bottom: 10px; animation: spin 4s linear infinite; display: inline-block; }
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 600px) {
+  .hero { padding: 0 20px 52px; }
+  .hero-nav { padding: 20px 20px; }
+  .city-hdr-wrap, .wrap, .book-sec { padding-left: 16px; padding-right: 16px; }
+  .stop-inner { grid-template-columns: 1fr; }
+  .stop-icon-card { width: 100%; height: 100px; order: -1; }
+  .hero-stats { gap: 14px; }
+  .city-hdr { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .city-nights { text-align: left; max-width: none; }
+  .price-strip { gap: 14px; }
+  .gt-amount { font-size: 38px; }
+  .gt-breakdown { gap: 14px; }
+}
+</style>
+</head>
+<body class="main-bg">
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <!-- Disco rays -->
+  <div class="disco-rays">
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+  </div>
+
+  <!-- Sparkles -->
+  <div class="sparkle">✦</div><div class="sparkle">✦</div><div class="sparkle">✦</div>
+  <div class="sparkle">✦</div><div class="sparkle">✦</div><div class="sparkle">✦</div>
+  <div class="sparkle">✦</div><div class="sparkle">✦</div>
+
+  <!-- Bubbles -->
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+
+  <!-- Disco ball -->
+  <div class="disco-ball-wrap">
+    <div class="disco-string"></div>
+    <div class="disco-ball"></div>
+  </div>
+
+  <!-- Background decor -->
+  <div class="aperol-glass">🍹</div>
+  <div class="palmtree">🌴</div>
+
+  <nav class="hero-nav">
+    <span class="hero-tag">Depart Fri Aug 14 · Land Sat Aug 15 · Return Aug 26, 2025</span>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-n">12</div><div class="hero-stat-l">days</div></div>
+      <div class="hero-stat"><div class="hero-stat-n">4</div><div class="hero-stat-l">cities</div></div>
+      <div class="hero-stat"><div class="hero-stat-n">1</div><div class="hero-stat-l">wedding</div></div>
+    </div>
+  </nav>
+
+  <div class="hero-body">
+    <p class="hero-eyebrow">🪩 the summer of our lives 🍹</p>
+    <h1 class="hero-title">our<br>europe<br>summer</h1>
+    <div class="hero-chips">
+      <a href="#budapest" class="hero-chip">🇭🇺 Budapest</a>
+      <a href="#vienna" class="hero-chip">🇦🇹 Vienna</a>
+      <a href="#salzburg" class="hero-chip">🇦🇹 Salzburg</a>
+      <a href="#venice" class="hero-chip">🇮🇹 Venice</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BUDAPEST
+══════════════════════════════════════ -->
+<section id="budapest" class="city-sec">
+<div class="city-hdr-wrap">
+  <p class="city-dates-label">Land Sat Aug 15 · depart Aug 18 · 3 nights</p>
+  <div class="city-hdr">
+    <div class="city-hdr-left">
+      <span class="city-flag">🇭🇺</span>
+      <h2 class="city-title">Budapest</h2>
+    </div>
+    <span class="city-nights">festival · thermal baths · night cruise</span>
+  </div>
+</div>
+<div class="wrap">
+
+  <div class="price-strip">
+    <div><div class="price-strip-label">Est. budget / person</div><div class="price-strip-val">€120–180</div></div>
+    <div class="price-strip-divider"></div>
+    <div><div class="price-strip-label">Must book ahead</div><div class="price-strip-val">Baths · Cruise</div></div>
+    <div class="price-strip-divider"></div>
+    <p class="price-strip-note">Drinks and food in Budapest are cheap — maybe €8–12 for a cocktail. Budget heaven compared to Venice.</p>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 1</span><span class="day-sep">✦</span><span class="day-theme">Arrival + Festival Night 🎉</span></div>
+    <div class="day-date">Saturday, Aug 15</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning · Arrival</span>
+            <span class="price-badge price-free">Free 🎉</span>
+          </div>
+          <div class="stop-name">Land + Check In ✈️</div>
+          <div class="stop-desc">You land ~8 AM. BUD Airport → city center: 100E express bus (~€4) or taxi (~€25–30). Drop bags, grab breakfast nearby. Tonight is the main event so pace yourself — do NOT over-schedule today.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Easy arrival. Hotel, breakfast, walk around. Very chilled start. Save energy for the festival tonight.</div>
+        </div>
+        <div class="stop-icon-card">✈️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 5 min walk · 400m to the Danube</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Late Morning</span>
+            <span class="price-badge price-free">Free + ~€5 coffee</span>
+          </div>
+          <div class="stop-name">Danube Promenade ☕</div>
+          <div class="stop-desc">A long riverside walkway with jaw-dropping views — Buda Castle across the water, the Chain Bridge, and the Parliament building (one of the most beautiful buildings in Europe). Grab a coffee from a café, sit by the river, take it in. One of the greatest city waterfronts anywhere.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>No entry fee, no museum — just walking along the river looking at Parliament across the water. Looks like a movie set. Actually one of the most impressive things you'll see on the trip.</div>
+        </div>
+        <div class="stop-icon-card">🌊</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 8 min walk · 650m</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Midday</span>
+            <span class="price-badge price-free">Free to enter nave</span>
+          </div>
+          <div class="stop-name">St. Stephen's Basilica 🕍</div>
+          <div class="stop-desc">Budapest's largest church — a stunning neoclassical building finished in 1905 after 50 years of construction. The gold-and-marble interior is dramatic. Quick stop, 15 minutes max. There's also a rooftop terrace with views (~€8) if you want.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Big ornate church. Cool to walk in, 10 minutes. Free. The outside is impressive. Not a long stop.</div>
+        </div>
+        <div class="stop-icon-card">🕍</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🛏️ Back to hotel · nap + big meal · non-negotiable</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-mid">~€15–20 for a solid lunch</span>
+          </div>
+          <div class="stop-name">Rest + Fuel Up 😴</div>
+          <div class="stop-desc">Nap. Hydrate. Eat something solid — protein and carbs, not just coffee. This single decision separates people who have an incredible festival night from those who tap out at midnight and spend €30 on a cab. This is not optional. The festival goes until 4 AM.</div>
+          <div class="chips"><span class="chip chip-tip">💚 absolutely non-negotiable</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚇 Metro to Óbuda Island · ~25 min</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Evening → Late Night</span>
+            <span class="price-badge">Ticket varies · book online</span>
+          </div>
+          <div class="stop-name">🎶 Sziget Festival</div>
+          <div class="stop-desc">One of Europe's biggest music festivals, held on a literal island in the Danube. Multiple stages, massive crowd energy, goes until 2–4 AM. Pack: comfortable shoes (non-negotiable), portable charger, cash + card, a light layer for later. Hydrate constantly — it's August and you're dancing outside.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Think Coachella but in Budapest on an island. Major main stage acts, great bars, festival food, huge energy. Multiple stages so you can bounce between genres. This will be a top-5 night of the year. Wear your best casual fit.</div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(0,0,0,0.2);">🎶</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 2</span><span class="day-sep">✦</span><span class="day-theme">Recovery + Icons ♨️</span></div>
+    <div class="day-date">Sunday, Aug 16</div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge price-mid">~€15–20 brunch</span>
+          </div>
+          <div class="stop-name">Sleep In + Late Brunch 🍳</div>
+          <div class="stop-desc">Sleep in. You earned it. Find a brunch spot near the hotel — Budapest has great café culture. Eggs, coffee, juice. Take your time. Today is built around recovery and two incredible experiences.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ or 🚇 12 min to City Park</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-mid">~€30–40 per person</span>
+          </div>
+          <div class="stop-name">Széchenyi Thermal Baths ♨️</div>
+          <div class="stop-desc">Built in 1913, this is Budapest's most famous thermal bath — a stunning baroque yellow palace with 3 outdoor pools + indoor pools, all fed by naturally heated geothermal spring water at 36–38°C. You float around an outdoor pool in the grounds of a 110-year-old palace. People play chess in the water. It's surreal. Towel and locker rental on-site ~€5 extra. Budget 2–3 hours.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Think of it as an outdoor heated pool inside a yellow palace. You float in warm water, people are playing chess in the pool next to you, there are multiple pools at different temperatures. It sounds weird and is actually one of the coolest things on the whole trip. Perfect festival recovery.</div>
+          <div class="chips"><span class="chip chip-book">📌 Book at szechenyibath.com</span><span class="chip chip-star">⭐ unmissable</span></div>
+        </div>
+        <div class="stop-icon-card">♨️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 20 min · 1.6km to riverfront · or grab an Uber</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Evening</span>
+            <span class="price-badge">~€20–30 per person</span>
+          </div>
+          <div class="stop-name">Danube Night Cruise 🚤</div>
+          <div class="stop-desc">You board a riverboat and cruise past the most beautiful stretch of Budapest at night — Parliament (one of the world's most stunning buildings), the lit-up Chain Bridge, Buda Castle glowing gold. Most cruises are 1.5–2 hours and include a welcome drink. Low effort, enormous payoff. One of the most beautiful things you'll see anywhere in Europe.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>You sit on a boat with a drink while the entire city lights up around you from the water. Parliament lit up at night looks genuinely insane — like a movie backdrop. Zero effort, the boat does everything. Top moment of the whole trip, not exaggerating.</div>
+          <div class="chips"><span class="chip chip-book">📌 Book on Viator or GetYourGuide</span><span class="chip chip-star">⭐ bucket list moment</span></div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(0,0,0,0.2);">🚤</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 3</span><span class="day-sep">✦</span><span class="day-theme">Explore + Night Out 🍻</span></div>
+    <div class="day-date">Monday, Aug 17</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge price-free">Free · bike rental ~€5–8/hr</span>
+          </div>
+          <div class="stop-name">Margaret Island 🌿</div>
+          <div class="stop-desc">A 2.5km car-free island in the middle of the Danube — lush and green with walking paths, a rose garden, outdoor pools, and bike rentals everywhere. Feels like a secret park floating in the river. Great for a slow morning when you're still recovering. Gorgeous views of the bridges from the tip of the island.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Car-free island in the Danube with bike rentals. Ride around, find a spot by the water. Very chilled. Also has an outdoor pool/beach area. Great place to actually relax before tonight's bar crawl.</div>
+        </div>
+        <div class="stop-icon-card">🌿</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 15 min walk · 1.2km to Jewish Quarter</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-free">Free to walk · lunch ~€12–20</span>
+          </div>
+          <div class="stop-name">Jewish Quarter + Kazinczy Street 🕍</div>
+          <div class="stop-desc">Budapest's most atmospheric neighbourhood — beautiful faded buildings, great street art, independent boutiques, coffee shops. Kazinczy Street is the hub: markets, bars, and restaurants within a 5-minute radius. The Great Synagogue (largest in Europe) is on this street. Afternoon wandering + eat somewhere here before bars open.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Budapest's coolest neighbourhood to walk around. Good food, vintage shops, bars all starting to open for the evening. This is the same area where ruin bars are tonight — so you're already here. Get dinner somewhere on Kazinczy Street.</div>
+        </div>
+        <div class="stop-icon-card">🏘️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 3 min · literally same street</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Night</span>
+            <span class="price-badge">Free entry · drinks ~€4–8 each</span>
+          </div>
+          <div class="stop-name">Ruin Bar Crawl 🍻</div>
+          <div class="stop-desc">Budapest invented "ruin bars" — abandoned buildings converted into wild multi-room bar complexes filled with mismatched furniture, plants, street art, and fairy lights. Szimpla Kert is the original and most famous. Then Instant (biggest, multiple dancefloors) and Fogasház for dancing. Cocktails are cheap — maybe €5–8. Your second big night.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Massive abandoned buildings turned into insane multi-floor bars — different music in every room, cheap drinks, great crowd. Szimpla Kert looks like someone filled a warehouse with every piece of furniture ever made and added a bar. Very cool, very cheap, totally unique to Budapest.</div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(0,0,0,0.2);">🍻</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 TRAVEL -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 4</span><span class="day-sep">✦</span><span class="day-theme">Travel Day 🚆</span></div>
+    <div class="day-date">Tuesday, Aug 18</div>
+    <div class="stop-card travel">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">10:30 AM</span>
+            <span class="price-badge">~€29–60 — book early on ÖBB.at</span>
+          </div>
+          <div class="stop-name">🚆 Budapest → Vienna · 243 km · ~2h 40min</div>
+          <div class="stop-desc">ÖBB Railjet — fast, comfortable, direct. Book on ÖBB.at (cheaper the earlier you book). Arrives Vienna Hauptbahnhof. U-Bahn into the city center takes ~10 min. Sunday departure so you can sleep in a bit first.</div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(255,255,255,0.05);">🚆</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     VIENNA
+══════════════════════════════════════ -->
+<section id="vienna" class="city-sec">
+<div class="city-hdr-wrap">
+  <p class="city-dates-label">Aug 18–20 · 2 nights</p>
+  <div class="city-hdr">
+    <div class="city-hdr-left">
+      <span class="city-flag">🇦🇹</span>
+      <h2 class="city-title">Vienna</h2>
+    </div>
+    <span class="city-nights">palaces · art · Sachertorte · ferris wheel</span>
+  </div>
+</div>
+<div class="wrap">
+
+  <div class="price-strip">
+    <div><div class="price-strip-label">Est. budget / person</div><div class="price-strip-val">€100–150</div></div>
+    <div class="price-strip-divider"></div>
+    <div><div class="price-strip-label">Must book ahead</div><div class="price-strip-val">Schönbrunn · Belvedere</div></div>
+    <div class="price-strip-divider"></div>
+    <p class="price-strip-note">Vienna is pricier than Budapest but still very reasonable. Great value for the calibre of what you're seeing.</p>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 5</span><span class="day-sep">✦</span><span class="day-theme">Arrival Afternoon 🎡</span></div>
+    <div class="day-date">Sunday, Aug 18</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-free">Free</span>
+          </div>
+          <div class="stop-name">St. Stephen's Cathedral ⛪</div>
+          <div class="stop-desc">Vienna's most iconic landmark — a Gothic masterpiece rising 137m in the center of the city. The tiled mosaic roof spells out the Austrian eagle in glazed tiles and is one of the most distinctive roofs in the world. The interior is vast, dark, and dramatic. Free to walk in. Right in the pedestrian zone so you pass it anyway.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Giant gothic cathedral with a wild coloured mosaic tile roof you can see from everywhere. The interior is massive and kind of eerie in a cool way. Free to walk in, 15 minutes max. Very photogenic outside.</div>
+        </div>
+        <div class="stop-icon-card">⛪</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 3 min walk · 250m — same street</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Late Afternoon</span>
+            <span class="price-badge price-free">Free to walk · gelato ~€4</span>
+          </div>
+          <div class="stop-name">Graben + Kohlmarkt 🛍️</div>
+          <div class="stop-desc">Vienna's most beautiful pedestrian streets — wide, elegant, lined with baroque buildings, high-end boutiques (Chanel, Louis Vuitton, local designers), and beautiful fountain squares. Vienna's Champs-Élysées energy. Great for photos, window shopping, an outdoor aperitivo at one of the café terraces.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Fancy pedestrian street with great architecture. Good spot for an outdoor drink at one of the terrace cafés. Very European, very photogenic. You can actually just sit outside and watch Vienna walk past.</div>
+        </div>
+        <div class="stop-icon-card">🛍️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 10 min walk · 800m</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Evening</span>
+            <span class="price-badge price-free">Free exterior · dinner ~€20–35pp</span>
+          </div>
+          <div class="stop-name">Hofburg Palace + Dinner 🏛️</div>
+          <div class="stop-desc">The Habsburg imperial palace in the city center — huge complex of courtyards and wings. Walk through the imperial courtyard to the Burggarten (palace garden) with its famous Mozart statue. Then find dinner nearby — schnitzel in Vienna is a requirement. Budget ~€20–35 per person for a sit-down restaurant.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Giant imperial palace you walk through the outside of — looks incredible at dusk. Then find somewhere for dinner. Schnitzel in Vienna is mandatory. Get a big breaded cutlet with potato salad. Don't overthink it.</div>
+        </div>
+        <div class="stop-icon-card">🏛️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 12 min walk · 1km to Bermuda Triangle bars</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Night</span>
+            <span class="price-badge">Cocktails ~€10–14 each</span>
+          </div>
+          <div class="stop-name">Bermuda Triangle Bars 🍹</div>
+          <div class="stop-desc">Vienna's bar district in the 1st district — called the Bermuda Triangle because people go in and don't come out. Rooftop bars, wine bars, live music. Good first night in Vienna — relaxed and fun without being too intense.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Good bar area, easy vibe, not far from the hotel. Sunday night so more relaxed crowd. Good cocktails and wine. Nice intro to Vienna.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 6</span><span class="day-sep">✦</span><span class="day-theme">Main Vienna Day 🎨</span></div>
+    <div class="day-date">Monday, Aug 19</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge price-mid">~€38 per person</span>
+          </div>
+          <div class="stop-name">Schönbrunn Palace ✨</div>
+          <div class="stop-desc">The Habsburgs' summer palace — think Versailles but in Vienna. 1,441 rooms, a grand baroque yellow exterior, enormous manicured gardens. At the top of the gardens: the Gloriette — a colonnade with a panoramic view over Vienna with the Alps in the distance. Go in the morning before crowds. Even if you skip the interior rooms, the gardens + Gloriette alone are worth the trip. One of the great palaces of Europe.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>You're walking through the grounds of a massive royal palace and going up a hill to a viewpoint where you can see the entire city and the Alps. It's actually a really good outdoor experience, not just a dusty museum. The €38 gets you inside the palace rooms too — worth it. Go early before it fills up.</div>
+          <div class="chips"><span class="chip chip-book">📌 Book at schoenbrunn.at</span><span class="chip chip-star">⭐ top-tier</span></div>
+        </div>
+        <div class="stop-icon-card">✨</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚇 U4 metro · 25 min back to city center</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Lunch</span>
+            <span class="price-badge price-mid">~€15–25 per person</span>
+          </div>
+          <div class="stop-name">Viennese Grand Café 🎂</div>
+          <div class="stop-desc">Vienna's café tradition is UNESCO-listed. Café Central (inside a vaulted stone palace hall — genuinely stunning) is the classic. Order: a Melange (Viennese coffee with foamed milk), a slice of Sachertorte (the original Viennese chocolate cake with apricot jam, €8), and sit for an hour. This is the Vienna experience in a nutshell.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Giant ornate café inside what looks like a palace ballroom — stone arches, marble, waiters in waistcoats. Good coffee, the famous chocolate Sachertorte. One of those "we are really in Europe" moments. Worth the slightly inflated prices.</div>
+        </div>
+        <div class="stop-icon-card">☕</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 18 min walk · 1.4km to Belvedere</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-mid">~€16–22 per person</span>
+          </div>
+          <div class="stop-name">Belvedere Palace · Klimt's "The Kiss" 🎨</div>
+          <div class="stop-desc">Another baroque palace with beautiful gardens, and inside: Klimt's "The Kiss" — one of the most famous paintings ever made. Gold leaf on canvas, two figures embracing on a floral cliff edge. Genuinely stunning in person in a way reproductions don't capture. The museum is not huge and very manageable — maybe 45 mins total. Walk through the gardens for free before or after.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>You go in for one specific painting — covered in actual gold leaf, looks unreal in person. Walk through a few other rooms on the way out. €20, under an hour. The palace exterior and formal gardens are also great and free. Not a slog — actually very satisfying.</div>
+          <div class="chips"><span class="chip chip-book">📌 Book at belvedere.at</span><span class="chip chip-star">⭐ worth every cent</span></div>
+        </div>
+        <div class="stop-icon-card">🎨</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚇 U1 metro · 20 min to Prater</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Evening</span>
+            <span class="price-badge">~€5 ferris wheel · cocktails ~€12</span>
+          </div>
+          <div class="stop-name">Prater + Riesenrad Ferris Wheel 🎡</div>
+          <div class="stop-desc">The Prater is Vienna's giant public park and amusement area. The Riesenrad is a 65m historic wooden ferris wheel built in 1897 — ride it at golden hour for beautiful city views (takes ~20 min). Then grab cocktails at one of the bars right nearby. Classic, fun, slightly romantic without being cheesy.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>130-year-old giant ferris wheel at sunset. €5 to ride, takes 20 minutes, great views of Vienna from the top. Then there are decent bars right there for cocktails after. Good evening out — not touristy at all, more of a local fun thing.</div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(0,0,0,0.2);">🎡</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 TRAVEL -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 7</span><span class="day-sep">✦</span><span class="day-theme">Travel Day 🚆</span></div>
+    <div class="day-date">Tuesday, Aug 20</div>
+    <div class="stop-card travel">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">11:13 AM</span>
+            <span class="price-badge">~€25–55 — book on ÖBB.at</span>
+          </div>
+          <div class="stop-name">🚆 Vienna → Salzburg · 295 km · ~2h 20min</div>
+          <div class="stop-desc">ÖBB Railjet. Arrive Salzburg Hauptbahnhof ~1:30 PM. Old Town is a 20-min walk or short bus from the station. The wedding weekend begins. 💒</div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(255,255,255,0.05);">🚆</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SALZBURG
+══════════════════════════════════════ -->
+<section id="salzburg" class="city-sec">
+<div class="city-hdr-wrap">
+  <p class="city-dates-label">Aug 20–23 · 3 nights · 💒 Wedding Weekend</p>
+  <div class="city-hdr">
+    <div class="city-hdr-left">
+      <span class="city-flag">🇦🇹</span>
+      <h2 class="city-title">Salzburg</h2>
+    </div>
+    <span class="city-nights">fortress views · Sound of Music · wedding</span>
+  </div>
+</div>
+<div class="wrap">
+
+  <div class="price-strip">
+    <div><div class="price-strip-label">Est. budget / person</div><div class="price-strip-val">€80–130</div></div>
+    <div class="price-strip-divider"></div>
+    <div><div class="price-strip-label">The whole strategy</div><div class="price-strip-val">Stay relaxed</div></div>
+    <div class="price-strip-divider"></div>
+    <p class="price-strip-note">Most activities here are free or cheap. The fortress is the main paid stop. Money saved here = money for Venice.</p>
+  </div>
+
+  <!-- DAY 8 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 8</span><span class="day-sep">✦</span><span class="day-theme">Arrival + Explore 🏰</span></div>
+    <div class="day-date">Tuesday, Aug 20</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-free">Free to walk</span>
+          </div>
+          <div class="stop-name">Getreidegasse + Old Town 🎵</div>
+          <div class="stop-desc">The most famous street in Salzburg — a narrow medieval lane lined with wrought-iron guild signs hanging above boutiques, bakeries, and cafés. Mozart was born at No. 9 (you'll walk right past). The whole street is a living piece of baroque history. From here, explore the cathedral square (Domplatz), hidden courtyards (Toscaninihof), and side alleys.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Very photogenic narrow old medieval street with cool old-fashioned hanging shop signs. Mozart's birthplace is on this street (no need to go in). Then wander the cathedral square. Great for photos, zero cost.</div>
+        </div>
+        <div class="stop-icon-card">🎵</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 6 min walk · 500m to the river</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Late Afternoon</span>
+            <span class="price-badge price-free">Free</span>
+          </div>
+          <div class="stop-name">Salzach River Walk 🌊</div>
+          <div class="stop-desc">The Salzach flows right through Salzburg's Old Town, and the walkways on both banks are gorgeous. Cross the Makartsteg bridge (covered in love locks). Views back toward the Old Town and the fortress on the hill above are stunning — one of Europe's most beautiful naturally framed city settings. Mountains visible in every direction.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Nice river walk. There are mountains visible from the bridge. The fortress on the hill is visible from here which is where you're going next. Very scenic, no cost, great photos.</div>
+        </div>
+        <div class="stop-icon-card">🌊</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚠 Funicular from Old Town · 5 min · ~€5 return · or hike 20 min</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Sunset</span>
+            <span class="price-badge">~€5–13 funicular + entry</span>
+          </div>
+          <div class="stop-name">Hohensalzburg Fortress 🏰</div>
+          <div class="stop-desc">Perched on a rocky cliff above the city, this medieval fortress (built in 1077) is one of the largest and best-preserved in Europe. But the real reason to go: the view. The entire city of Salzburg spreads below you, the Salzach curves through it, and the Alps rise in every direction. At sunset it turns gold. This is your arrival wow moment — and it delivers.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Medieval fortress on a cliff, you take a small cable car up. The views from the top are genuinely spectacular — city below, Alps in every direction. This is the single best thing to do in Salzburg and it's not close. Don't miss it.</div>
+          <div class="chips"><span class="chip chip-star">⭐ #1 thing in Salzburg</span></div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(0,0,0,0.2);">🏰</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚠 Funicular back down · then 5 min walk into Old Town</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Night</span>
+            <span class="price-badge price-mid">~€20–35 dinner + wine</span>
+          </div>
+          <div class="stop-name">Dinner + Wine in Old Town 🍷</div>
+          <div class="stop-desc">Low-key and lovely. Find a restaurant in the Old Town with outdoor seating. Try Tafelspitz (slow-cooked beef), Salzburger Nockerl (the famous soufflé dessert), or just a good pasta and local wine. Early night — tomorrow has welcome drinks at 6.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 9 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 9</span><span class="day-sep">✦</span><span class="day-theme">Welcome Drinks @ 6 PM 🍾</span></div>
+    <div class="day-date">Wednesday, Aug 21</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge price-free">Free · coffee ~€4</span>
+          </div>
+          <div class="stop-name">Mirabell Gardens ☀️</div>
+          <div class="stop-desc">Beautiful baroque gardens with manicured flower beds, fountains, and the most famous view in Salzburg: the Fortress perfectly framed at the end of the garden path. The Do-Re-Mi staircase from The Sound of Music is here. Arrive by 9 AM for good light and fewer tour groups. The rose garden is gorgeous in August.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Formal gardens with the famous Sound of Music staircase and a perfect view of the fortress behind. Great photo spot in the morning light. Free. Takes 30 minutes, then get breakfast nearby.</div>
+        </div>
+        <div class="stop-icon-card">☀️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 10 min walk · 800m across the bridge</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Midday</span>
+            <span class="price-badge price-mid">~€15–25 long lunch + Aperol</span>
+          </div>
+          <div class="stop-name">Old Town Wander + Long Lunch 🗺️</div>
+          <div class="stop-desc">Cathedral square, hidden alleys, boutique browsing. Then a long outdoor lunch with Aperol Spritz in hand. Take your absolute time. This is the buffer between sight-seeing and the evening — don't squeeze anything else in.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Walking through a beautiful old city, then a long lunch on a terrace with drinks. No schedule. Very pleasant afternoon. Key part: it ends with going back to the hotel to rest.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🛁 Back to hotel · shower · get ready · sacred rest window</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-free">Free — protect this time</span>
+          </div>
+          <div class="stop-name">The Sacred Rest Window 🛁</div>
+          <div class="stop-desc">Shower. Nap if possible. Full beauty prep. Get dressed without rushing. This is the whole reason the afternoon is kept clear — you show up to welcome drinks looking incredible, not sweaty from trying to squeeze one more thing in. This is strategy, not laziness.</div>
+          <div class="chips"><span class="chip chip-rest">💙 this is why the afternoon is protected</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop-card special">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">6 PM</span>
+            <span class="price-badge price-free">Wedding event 🥂</span>
+          </div>
+          <div class="stop-name">🍾 Welcome Drinks</div>
+          <div class="stop-desc">Arrive relaxed, glowing, not rushed. This is what the whole afternoon was designed for. Stay out as long as you want — the night is yours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 10 WEDDING -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 10</span><span class="day-sep">✦</span><span class="day-theme">💒 Wedding Day</span></div>
+    <div class="day-date">Thursday, Aug 22</div>
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge price-free">Free + ~€5 coffee</span>
+          </div>
+          <div class="stop-name">Coffee + Gentle Walk ☕</div>
+          <div class="stop-desc">Easy morning only. Coffee, maybe a short walk — Mirabell gardens or along the river. Nothing that tires you out. The goal is to feel fresh and present for 4 PM.</div>
+        </div>
+      </div>
+    </div>
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">💄 Back to hotel · full prep time</div></div>
+    <div class="stop-card wedding">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">4 PM</span>
+            <span class="price-badge" style="background:linear-gradient(135deg,#FFE4EE,#FFCCE0);border-color:#F0A0C0;color:#6A1030;">Wedding day 💍</span>
+          </div>
+          <div class="stop-name">💍 The Wedding</div>
+          <div class="stop-desc">Be fully present. Enjoy every single moment — you're at a wedding in Salzburg, Austria, with the Alps all around you. Celebrate late into the night. Take all the photos. Dance to everything.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Wedding in Salzburg. Get the outfit sorted before the trip. Dance, drink, be present. The whole itinerary was designed so you arrive to this not exhausted. Enjoy it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 11 TRAVEL -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 11</span><span class="day-sep">✦</span><span class="day-theme">Travel Day 🚆</span></div>
+    <div class="day-date">Friday, Aug 23</div>
+    <div class="stop-card travel">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge">~€35–75 — book on ÖBB.at or Trenitalia</span>
+          </div>
+          <div class="stop-name">🚆 Salzburg → Venice · ~330 km · ~3h 45min</div>
+          <div class="stop-desc">One change at Villach, Austria. Route goes through the Alps — one of the most scenic train journeys in Europe. Arrives Venice Santa Lucia station, which exits directly onto the Grand Canal. Leave with buffer time the morning after a wedding. 🏔️</div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(255,255,255,0.05);">🏔️</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     VENICE
+══════════════════════════════════════ -->
+<section id="venice" class="city-sec">
+<div class="city-hdr-wrap">
+  <p class="city-dates-label">Aug 23–26 · 3 nights</p>
+  <div class="city-hdr">
+    <div class="city-hdr-left">
+      <span class="city-flag">🇮🇹</span>
+      <h2 class="city-title">Venice</h2>
+    </div>
+    <span class="city-nights">canals · golden mosaics · Burano · beach club</span>
+  </div>
+</div>
+<div class="wrap">
+
+  <div class="price-strip">
+    <div><div class="price-strip-label">Est. budget / person</div><div class="price-strip-val">€200–300</div></div>
+    <div class="price-strip-divider"></div>
+    <div><div class="price-strip-label">Must book ahead</div><div class="price-strip-val">Basilica · Doge's Palace</div></div>
+    <div class="price-strip-divider"></div>
+    <p class="price-strip-note">Venice is the most expensive city on the trip. Budget for it. Every spritz near St. Mark's is €10+. Eat in Dorsoduro to save money.</p>
+  </div>
+
+  <!-- DAY 11 cont -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 11</span><span class="day-sep">✦</span><span class="day-theme">Arrival + First Night Magic ✨</span></div>
+    <div class="day-date">Friday, Aug 23</div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-free">Free · vaporetto pass ~€9.50/day</span>
+          </div>
+          <div class="stop-name">Arrive + Get Completely Lost 🗺️</div>
+          <div class="stop-desc">Check in. Then put your phone in your pocket and wander. Venice has no grid, no straight lines — only canals, bridges, and dead ends. Getting "lost" is the entire point. You'll stumble onto things more beautiful than anything you googled. The city has ~1,000 bridges and 150+ canals. Buy a vaporetto (water bus) multi-day pass at the station on arrival.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Venice is unlike any other city — everything is on water, no cars anywhere at all, you navigate by canals and little footbridges. Just walking around for the first hour with no plan is actually the best way to see it. You'll keep turning corners and going "wait, what." Go with it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ find a canal-side bar · ~10 min into wandering</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Sunset</span>
+            <span class="price-badge price-mid">~€8–12 per spritz</span>
+          </div>
+          <div class="stop-name">Grand Canal + Aperol Spritz 🥂</div>
+          <div class="stop-desc">The Grand Canal is Venice's main artery — a 4km S-curve lined with Renaissance and Gothic palazzos, gondolas, and water taxis. Find any bar with a canal-side terrace. Order a Venetian spritz (Aperol + Prosecco + soda). Watch the boats drift past. Sit here for an hour. This is the moment you've been working toward all trip.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Sitting on a canal terrace with a drink watching gondolas go by while 500-year-old palace buildings reflect in the water. This is that moment. Not optional. Find a terrace, order a spritz, don't look at your phone.</div>
+        </div>
+        <div class="stop-icon-card">🥂</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 10 min walk to St. Mark's Square</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Night</span>
+            <span class="price-badge">Free to walk · dinner ~€30–50pp</span>
+          </div>
+          <div class="stop-name">St. Mark's Square at Night ✨</div>
+          <div class="stop-desc">Piazza San Marco — Venice's famous main square — is overwhelmed with tourists by day. At night after 9 PM, the crowds thin dramatically. The basilica is dramatically lit in gold, the café orchestras play live Vivaldi outdoors, and you get this enormous 1,000-year-old space almost to yourself. The atmosphere is genuinely unreal. Have dinner nearby.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>The famous Venice square but at night when it's actually beautiful and not a crowd nightmare. The basilica lit up in gold against the dark sky is stunning. The cafés in the stone arcades play live classical music outside. Worth staying up for — this is what people mean when they say Venice is magical.</div>
+          <div class="chips"><span class="chip chip-star">⭐ best moment in Venice</span></div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(0,0,0,0.2);">✨</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 12 -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 12</span><span class="day-sep">✦</span><span class="day-theme">Classic Venice Day 🛶</span></div>
+    <div class="day-date">Saturday, Aug 24</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Before 9 AM</span>
+            <span class="price-badge price-mid">~€10–30 per person</span>
+          </div>
+          <div class="stop-name">St. Mark's Basilica 🕍</div>
+          <div class="stop-desc">Built over 1,000 years, this basilica is covered — ceiling, walls, floor — in 8,000 sq metres of gold-leaf mosaics depicting Bible scenes. One of the most spectacular interiors in the world. Go before 9 AM: after 10 the queues can be 2+ hours. Before 9 it's peaceful, cooler, and the morning light through the windows is magical. Takes ~40 minutes inside.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>The whole interior — walls, ceiling, floor — is covered in gold mosaics. It looks like being inside a very intricate gold cave. Genuinely unlike anything you've been in. Worth the early alarm. Under an hour total and you'll be glad you did it.</div>
+          <div class="chips"><span class="chip chip-book">📌 Book at basilicasanmarco.it</span></div>
+        </div>
+        <div class="stop-icon-card">🕍</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 30 seconds · literally right next door</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge price-mid">~€30–35 per person</span>
+          </div>
+          <div class="stop-name">Doge's Palace 🏛️</div>
+          <div class="stop-desc">The seat of Venetian power for 600 years — Gothic palace with huge gilded rooms, Tintoretto ceiling paintings, the famous Bridge of Sighs (where prisoners took their last look at Venice before being taken to the cells), and secret rooms. The Great Council Hall is one of the largest rooms in Europe. Very manageable — budget 1 hour. Book back-to-back with the Basilica.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Gothic palace where Venice's rulers lived. Huge ornate rooms, secret passages, hidden prison cells, and the Bridge of Sighs — yes from those cheesy Venice photos, and it's actually really cool in person. About an hour inside. Skip the audio guide, just explore.</div>
+          <div class="chips"><span class="chip chip-book">📌 Book at visitmuve.it</span></div>
+        </div>
+        <div class="stop-icon-card">🏛️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ 15 min · cross the Accademia Bridge into Dorsoduro</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Lunch</span>
+            <span class="price-badge price-mid">~€15–25 per person</span>
+          </div>
+          <div class="stop-name">Dorsoduro Lunch 🍝</div>
+          <div class="stop-desc">Dorsoduro is one of Venice's best neighbourhoods — less touristy, residential, with great restaurants. Campo Santa Margherita is the local square where Venetians hang out: open-air bars, cheaper cicchetti, good energy. Much better food for less money than anywhere near St. Mark's. Order pasta al nero di seppia (squid ink pasta) or risotto al mare.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>The neighbourhood where actual Venetians live. Much better food, maybe half the price. Find a trattoria, order what they recommend. Venice is expensive everywhere but at least here it's actually good and the vibe is local.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ wander toward any canal · 10–20 min</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Afternoon</span>
+            <span class="price-badge price-high">~€80–90 for 30 min (shared)</span>
+          </div>
+          <div class="stop-name">Gondola Ride 🛶</div>
+          <div class="stop-desc">Yes, expensive. Yes, touristy. And yes, still one of the most romantic things you can do in Venice. A traditional flat-bottomed boat, a gondolier in stripes, narrow dark canals between ancient buildings. You access parts of Venice that are invisible from foot. Go in the afternoon for warm light. Negotiate the route before you get on — ask for the back canals (not the Grand Canal).</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Do this. It's ~€80–90 but you're in Venice and you'll never feel weird about it. 30 minutes through narrow back canals you can't see any other way, in a boat that's been used in this city for 1,000 years. Very romantic. Ask the gondolier for the quiet back canals.</div>
+        </div>
+        <div class="stop-icon-card">🛶</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚤 Vaporetto Line 1 · Grand Canal end-to-end · included in day pass</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Sunset</span>
+            <span class="price-badge price-free">Free with vaporetto pass</span>
+          </div>
+          <div class="stop-name">Grand Canal Vaporetto at Sunset 🌅</div>
+          <div class="stop-desc">Take Line 1 end-to-end at golden hour. You're on a boat passing literally every major building in Venice — Rialto Bridge, Ca' d'Oro, Palazzo Grimani — as the light turns orange. 45 minutes, free with your pass. The most beautiful cheap transport experience anywhere in the world.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Just sit on the public water bus and watch Venice go by at sunset. Zero effort, zero cost (covered by pass), looks like a movie for 45 minutes. Highly recommend sitting on the outer deck.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚶‍♀️ Get off at Rialto · follow the cicchetti bars</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Night</span>
+            <span class="price-badge">~€15–25pp total · ~€2–4 per cicchetto</span>
+          </div>
+          <div class="stop-name">Cicchetti Bar Crawl 🍷</div>
+          <div class="stop-desc">Cicchetti = Venetian small bites (crostini with toppings, fried things, tiny sandwiches) eaten standing at bars with small glasses of wine called "ombra" (~€1.50 each). The area around the Rialto market (Cannaregio + San Polo) has dozens of bars within a 10-minute walk. You graze for 2 hours, spend maybe €20 each, and eat incredibly well. This is how Venetians actually eat dinner.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Street food bar crawl but Venice. Go bar to bar, get a small glass of wine and two bites at each. Cheap, social, the food is excellent. Way more fun than one overpriced restaurant. The tiny baccalà mantecato (creamed cod on bread) is unreal.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 13 BEST DAY -->
+  <div class="day-block">
+    <div class="day-meta"><span class="day-num">Day 13</span><span class="day-sep">✦</span><span class="day-theme">🔥 Your Best Day — Burano + Beach Club</span></div>
+    <div class="day-date">Sunday, Aug 25</div>
+
+    <div class="stop-card">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">9 AM departure</span>
+            <span class="price-badge price-free">Included in vaporetto pass</span>
+          </div>
+          <div class="stop-name">Ferry to Burano 🌈</div>
+          <div class="stop-desc">A small fishing island ~7km from central Venice. Famous for: brightly painted houses (every home a different vivid colour — cobalt, lemon, mint, fuchsia) and handmade lace. Colourful reflections in the canals are stunning. Feels like someone took a normal Italian village and dipped it in paint. The photos look almost too good to be real — but it's just where people live.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Small island where every single house is painted a different insanely bright colour. It's genuinely surreal — looks like a cartoon but it's where fishermen have lived for centuries. The canal reflections are incredible. Best photo spot of the whole trip by a mile.</div>
+          <div class="chips"><span class="chip chip-star">⭐ most photogenic stop on the entire trip</span></div>
+        </div>
+        <div class="stop-icon-card">🌈</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚤 Vaporetto line 12 from Fondamente Nove · ~45 min</div></div>
+
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">10 AM – 1 PM</span>
+            <span class="price-badge price-mid">~€20–35 lunch</span>
+          </div>
+          <div class="stop-name">Explore Burano + Seafood Lunch 🦐</div>
+          <div class="stop-desc">Walk every street (the whole island takes 45 mins). Stop at a lace shop. Take your photos. Then eat at a waterfront seafood restaurant — fresh seafood here is exceptional and cheaper than Venice. Order risotto di mare (seafood risotto) or spaghetti alle vongole (clams with white wine). Don't linger past 1:30 PM or you'll be rushed for the beach.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Wander the crazy colourful streets for photos, then eat at a waterfront seafood restaurant. Risotto di mare or clam pasta here is genuinely excellent and way cheaper than Venice. Don't miss it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚤 Vaporetto back toward Venice · transfer to Lido · ~50 min total</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">~3:30 PM</span>
+            <span class="price-badge">~€25–40 chairs + umbrella · drinks extra</span>
+          </div>
+          <div class="stop-name">Blue Moon Beach Club · Lido di Venezia ☀️</div>
+          <div class="stop-desc">Lido di Venezia is the narrow barrier island protecting the Venice lagoon from the Adriatic. Blue Moon is the classic beach club there: proper sun loungers and umbrellas, a bar, a restaurant, warm Adriatic water. After days of cobblestones and canals, lying on a sandy beach with a cocktail in hand is a complete reset. This is the secret weapon of the trip. The Lido is where the Venice Film Festival is held every August.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Actual sandy beach on the Adriatic Sea with sun loungers, cocktails, swimming. After a week of walking on cobblestones this is heaven. The Lido is where the Venice Film Festival is held — so even the beach is cool. Very easy via vaporetto. This will be one of the best afternoons of the trip.</div>
+          <div class="chips"><span class="chip chip-star">⭐ secret weapon of this trip</span></div>
+        </div>
+        <div class="stop-icon-card" style="background:rgba(0,0,0,0.2);">☀️</div>
+      </div>
+    </div>
+
+    <div class="walk-conn"><div class="wdots"><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div></div><div class="walk-pill">🚤 Vaporetto back to Venice · 15 min</div></div>
+
+    <div class="stop-card special">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Night</span>
+            <span class="price-badge">~€40–70 per person · treat yourself</span>
+          </div>
+          <div class="stop-name">Final Dinner 🕯️</div>
+          <div class="stop-desc">Your nicest meal of the trip. Dress up. Sit outside. Order wine, pasta, seafood, dessert, digestivo. Toast to 12 days across 4 countries — what you've done, where you've been, what you'll remember. Then take a slow final walk through Venice at night. Don't look at your phone.</div>
+          <div class="bf-note"><span class="bf-icon">🧔</span>Nice dinner, wherever looks right when you get back from the beach. Sit outside. Order everything. It's the last night — don't think about the bill. Take a long walk after through the canals at night. Venice at midnight when it's quiet is something else entirely.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 14 -->
+  <div class="day-block" style="margin-bottom:60px;">
+    <div class="day-meta"><span class="day-num">Day 14</span><span class="day-sep">✦</span><span class="day-theme">Departure 👋</span></div>
+    <div class="day-date">Monday, Aug 26</div>
+    <div class="stop-card">
+      <div class="stop-inner no-img">
+        <div class="stop-left">
+          <div class="stop-top-row">
+            <span class="stop-time">Morning</span>
+            <span class="price-badge price-free">~€3–5 coffee + cornetto</span>
+          </div>
+          <div class="stop-name">Last Canal Walk + Coffee ☕</div>
+          <div class="stop-desc">Cornetto and cappuccino from a local bar (stand at the counter — it's the local way and it's cheaper). One final wander through quiet morning Venice before the day-trippers arrive. Grab a souvenir. Then head to the water taxi or vaporetto to the airport or train station. You go home a different person.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BOOKING + BUDGET SECTION
+══════════════════════════════════════ -->
+<section>
+<div class="book-sec">
+  <h2 class="sec-title">book these now 📌</h2>
+  <p class="sec-sub">Everything below sells out in August — especially in Venice. Book the timed entries ASAP. The rest you decide on the ground.</p>
+
+  <div class="book-grid">
+    <div class="book-card">
+      <div class="bc-city">Budapest 🇭🇺</div>
+      <div class="bc-name">Széchenyi Thermal Baths</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">€30–40 pp</span>
+        <span class="bc-where">szechenyibath.com</span>
+      </div>
+      <div class="bc-urgency">⚡ Book timed entry now</div>
+    </div>
+    <div class="book-card">
+      <div class="bc-city">Budapest 🇭🇺</div>
+      <div class="bc-name">Danube Night Cruise</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">€20–30 pp</span>
+        <span class="bc-where">Viator / GetYourGuide</span>
+      </div>
+      <div class="bc-urgency">⚡ Sells out in summer</div>
+    </div>
+    <div class="book-card">
+      <div class="bc-city">Vienna 🇦🇹</div>
+      <div class="bc-name">Schönbrunn Palace</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">€38 pp</span>
+        <span class="bc-where">schoenbrunn.at</span>
+      </div>
+      <div class="bc-urgency">⚡ Timed entry required</div>
+    </div>
+    <div class="book-card">
+      <div class="bc-city">Vienna 🇦🇹</div>
+      <div class="bc-name">Belvedere (The Kiss)</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">€16–22 pp</span>
+        <span class="bc-where">belvedere.at</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="bc-city">Venice 🇮🇹</div>
+      <div class="bc-name">St. Mark's Basilica</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">€10–30 pp</span>
+        <span class="bc-where">basilicasanmarco.it</span>
+      </div>
+      <div class="bc-urgency">⚡ Go before 9 AM</div>
+    </div>
+    <div class="book-card">
+      <div class="bc-city">Venice 🇮🇹</div>
+      <div class="bc-name">Doge's Palace</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">€30–35 pp</span>
+        <span class="bc-where">visitmuve.it</span>
+      </div>
+      <div class="bc-urgency">⚡ Book back-to-back with Basilica</div>
+    </div>
+    <div class="book-card">
+      <div class="bc-city">Venice 🇮🇹</div>
+      <div class="bc-name">Vaporetto Pass (multi-day)</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">~€9.50/day</span>
+        <span class="bc-where">Buy at Santa Lucia station</span>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="bc-city">All trains 🚆</div>
+      <div class="bc-name">Rail Tickets (3 legs)</div>
+      <div class="bc-price-row">
+        <span class="bc-amount">€90–190 pp total</span>
+        <span class="bc-where">ÖBB.at · Trenitalia.com</span>
+      </div>
+      <div class="bc-urgency">⚡ Prices rise fast — book now</div>
+    </div>
+  </div>
+
+  <!-- Grand total -->
+  <div class="grand-total">
+    <div class="gt-label">✦ estimated total trip cost per person ✦</div>
+    <div class="gt-amount">€600–850</div>
+    <div class="gt-note">Tickets + trains + experiences only (not flights, hotels, or daily food). The fun stuff is worth every cent. 🥂</div>
+    <div class="gt-breakdown">
+      <div class="gt-item"><div class="gt-item-l">Budapest</div><div class="gt-item-v">€120–180</div></div>
+      <div class="gt-item"><div class="gt-item-l">Vienna</div><div class="gt-item-v">€100–150</div></div>
+      <div class="gt-item"><div class="gt-item-l">Salzburg</div><div class="gt-item-v">€80–130</div></div>
+      <div class="gt-item"><div class="gt-item-l">Venice</div><div class="gt-item-v">€200–300</div></div>
+      <div class="gt-item"><div class="gt-item-l">Trains</div><div class="gt-item-v">€90–190</div></div>
+    </div>
+  </div>
+
+  <div class="book-tip">
+    ✅ <strong>Rule:</strong> Book timed entries + sunset/night experiences immediately. Skip pre-booking restaurants — spontaneous is always better. Ask your hotel for the current hot spots when you arrive in each city. 🍹
+  </div>
+</div>
+</section>
+
+
+<footer>
+  <div class="footer-disco">🪩</div>
+  <p>made with love for <span>the summer of our lives</span> ✦ aug 2025</p>
+</footer>
+
+</body>
+</html>
